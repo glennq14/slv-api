@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('networks', function (Blueprint $table) {
             $table->id();
+            $table->integer('network_id')->unique();
             $table->timestamps();
         });
     }

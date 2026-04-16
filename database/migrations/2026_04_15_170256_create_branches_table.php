@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('branches', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('network_id');
+            $table->foreign('network_id')
+                ->references('id')
+                ->on('networks')
+                ->onDelete('cascade');
+            $table->integer('branch_id')->unique();
+            $table->integer('channel');
+            $table->boolean('overseas');
             $table->timestamps();
         });
     }

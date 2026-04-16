@@ -13,6 +13,20 @@ return new class extends Migration
     {
         Schema::create('property_details', function (Blueprint $table) {
             $table->id();
+            $table->foreign('property_id')
+                ->references('id')
+                ->on('properties')
+                ->onDelete('cascade');
+            $table->string('summary', 1000)
+                ->comment('The summary description of the property being sent');
+            $table->string('description', 32000)
+                ->comment('The full description of the property being sent');
+            $table->json('features')->unique()
+                ->comment('Features of the property being sent');
+            
+
+            $table->boolean('business_for_sale');
+            $table->string('comm_use_class');
             $table->timestamps();
         });
     }

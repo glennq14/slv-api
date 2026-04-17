@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('property_prices', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('property_id');
             $table->foreign('property_id')
                 ->references('id')
                 ->on('properties')
@@ -22,7 +23,7 @@ return new class extends Migration
             $table->enum('os_price_qualifier', [0, 2, 4, 5, 16, null])
                 ->comment('The qualifier on the advertised price of the property being sent: 0 Default, 2 Guide Price, 4 Offers in Excess of, 5 Offers in the Region of, 16 Coming Soon')
                 ->nullable();
-            $table->decimal('Deposit')->default(0)
+            $table->integer('deposit')
                 ->comment('Deposit required for rental of the property (for lettings only)')
                 ->nullable();
             $table->string('administration_fee')

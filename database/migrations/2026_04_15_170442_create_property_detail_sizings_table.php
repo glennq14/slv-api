@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('property_detail_sizings', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('property_id');
+            $table->foreign('property_id')
+                ->references('id')
+                ->on('properties')
+                ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

@@ -20,6 +20,9 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table->decimal('price',8,2)->default(0)
                 ->comment('The price of the property being sen');
+            $table->enum('price_qualifier', [0, 2, 4, 5, 16, null])
+                ->comment('The qualifier on the advertised price of the property being sent: 0 Default, 2 Guide Price, 4 Offers in Excess of, 5 Offers in the Region of, 16 Coming Soon')
+                ->nullable();
             $table->enum('os_price_qualifier', [0, 2, 4, 5, 16, null])
                 ->comment('The qualifier on the advertised price of the property being sent: 0 Default, 2 Guide Price, 4 Offers in Excess of, 5 Offers in the Region of, 16 Coming Soon')
                 ->nullable();

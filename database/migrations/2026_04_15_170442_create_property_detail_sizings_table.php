@@ -13,12 +13,15 @@ return new class extends Migration
     {
         Schema::create('property_detail_sizings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('property_id');
-            $table->foreign('property_id')
+            $table->unsignedBigInteger('property_detail_id');
+            $table->foreign('property_detail_id')
                 ->references('id')
-                ->on('properties')
+                ->on('property_details')
                 ->onDelete('cascade');
-            
+            $table->decimal('minimum',8,2)->default(0);
+            $table->decimal('maximum',8,2)->default(0);
+            $table->string('area_unit')
+                ->nullable();
             $table->timestamps();
         });
     }

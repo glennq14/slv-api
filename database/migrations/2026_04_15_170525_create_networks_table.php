@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('networks', function (Blueprint $table) {
             $table->id();
-            $table->integer('network_id')->unique()->comment('Unique reference for this network');
+            $table->unsignedBigInteger('property_id');
+            $table->foreign('property_id')
+                ->references('id')
+                ->on('properties');
+            $table->enum('network', ['slv','rightmove','zoopla','bazaraki','apits'])
+                ->comment('Network for third party');
             $table->timestamps();
         });
     }

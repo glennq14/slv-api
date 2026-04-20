@@ -25,8 +25,6 @@ return new class extends Migration
                 ->nullable();
             $table->integer('room_length')
                 ->comment('The length of the room');
-            $table->integer('room_length')
-                ->comment('The length of the room');
             $table->integer('room_width')
                 ->comment('The width of the room');
             $table->enum('room_dimension_unit', [5, 6, 7, 8, 9, null])

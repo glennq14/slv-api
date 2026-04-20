@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('branches', function (Blueprint $table) {
+        Schema::create('property_branches', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('network_id');
-            $table->foreign('network_id')->references('id')->on('networks')->onDelete('cascade');
+            $table->unsignedBigInteger('property_id');
+            $table->foreign('property_id')->references('id')->on('properties')->onDelete('cascade');
             $table->integer('branch_id')->unique()->comment('Unique reference for this branch');
             $table->enum('channel', [1, 2])->comment('For dual branches it allows to retrieve all the properties for a specific channel');
             $table->boolean('overseas')->nullable();

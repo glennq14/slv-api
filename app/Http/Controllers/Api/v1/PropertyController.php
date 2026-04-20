@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PropertyResource;
 use App\Models\Property;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        return [1,2,3];
+       return PropertyResource::collection(Property::with('author')->with('property_type')->paginate(10));
     }
 
     /**
@@ -22,17 +23,18 @@ class PropertyController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        Property::create($data);
+        
+        $property = Property::create($data); 
 
-        return;
+        return $property;
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Property  $property)
     {
-        //
+        return PropertyResource::make($property);
     }
 
     /**

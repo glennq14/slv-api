@@ -20,13 +20,19 @@ return new class extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
+            $table->string('title')
+                ->comment('Property title');
             $table->string('agent_ref', 80)
                 ->comment("Agent's unique reference for this property");
             $table->boolean('published')
                 ->comment('Defines whether this property should be visible');
-            $table->integer('property_type')
-                ->default(0)
-                ->comment('The type of the property being sent in this message');
+            $table->unsignedBigInteger('property_type_id');
+            $table->foreign('property_type_id')
+                ->references('id')
+                ->on('property_types');
+            // $table->integer('property_type')
+            //     ->default(0)
+            //     ->comment('The type of the property being sent in this message');
             $table->enum('os_status', ['Available', 'SSTC', 'Under Offer', 'Reserved'])
                 ->comment('The current transaction status for this property: 
                     1 Available, 

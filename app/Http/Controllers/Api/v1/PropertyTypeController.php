@@ -40,16 +40,21 @@ class PropertyTypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, PropertyType $property_type)
     {
-        //
+        $data = $request->all();
+        $property_type->update($data);
+
+        return new PropertyTypeResource($property_type);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(PropertyType $property_type)
     {
-        //
+        $property_type->delete();
+
+        return response()->noContent();
     }
 }

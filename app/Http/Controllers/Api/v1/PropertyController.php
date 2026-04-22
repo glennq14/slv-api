@@ -14,6 +14,19 @@ class PropertyController extends Controller
      */
     public function index()
     {
+
+        // $properties = Property::all()->toArray();
+        // $xml = new \SimpleXMLElement('<root/>');
+        // foreach ($properties as $property) {
+        //     print_r($property); exit;
+        //     print_r(array_flip($property)); exit;
+        //     $xml->addChild('', $property->title);
+        //     // $flipped = array_flip($property);
+        //     // array_walk_recursive($flipped, [$xml, 'addChild']);
+        // }
+        
+        // print $xml->asXML();
+
        return PropertyResource::collection(Property::with('author')->with('property_type')->paginate(10));
     }
 
@@ -40,9 +53,11 @@ class PropertyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Property $property)
     {
-        //
+        $property->update($request->all());
+
+        return new PropertyResource($property);
     }
 
     /**

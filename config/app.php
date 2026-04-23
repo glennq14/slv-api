@@ -123,4 +123,9 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    | Lead default email from env file
+    */
+    'lead_email'=> env('LEAD_EMAIL', 'sample@emmail.com'),
+
 ];

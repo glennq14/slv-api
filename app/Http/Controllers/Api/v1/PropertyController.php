@@ -12,22 +12,15 @@ class PropertyController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
 
-        // $properties = Property::all()->toArray();
-        // $xml = new \SimpleXMLElement('<root/>');
-        // foreach ($properties as $property) {
-        //     print_r($property); exit;
-        //     print_r(array_flip($property)); exit;
-        //     $xml->addChild('', $property->title);
-        //     // $flipped = array_flip($property);
-        //     // array_walk_recursive($flipped, [$xml, 'addChild']);
-        // }
-        
-        // print $xml->asXML();
+        $query = Property::query();
+        if ($request->has('include')) {
+            $query->with(explode(',', $request->include));
+        }
 
-       return PropertyResource::collection(Property::with('author')->with('property_type')->paginate(10));
+        return PropertyResource::collection($query->paginate(10));
     }
 
     /**
@@ -66,5 +59,18 @@ class PropertyController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    /**
+     * Summary of downloadXml
+     * @param Property $property
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     */
+    private function downloadXml(Property $property)
+    {
+        $pathToFile = storage_path('app/exports/data.xml');
+        return response()->download($pathToFile, 'filename.xml', [
+            'Content-Type' => 'application/xml'
+        ]);
     }
 }

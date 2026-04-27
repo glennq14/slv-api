@@ -18,25 +18,24 @@ return new class extends Migration
                 ->references('id')
                 ->on('property_details')
                 ->onDelete('cascade');
-            $table->string('room_name', 120)
+            $table->string('name', 120)
                 ->comment('The name of the room');
-            $table->string('room_description', 1000)
+            $table->string('description', 1000)
                 ->comment('The specific description of that room')
                 ->nullable();
-            $table->integer('room_length')
+            $table->integer('length')
                 ->comment('The length of the room');
-            $table->integer('room_width')
+            $table->integer('width')
                 ->comment('The width of the room');
-            $table->enum('room_dimension_unit', [5, 6, 7, 8, 9, null])
+            $table->enum('dimension_unit', ["Metres", "Centimetres", "Millimetres", "Feet", "Inches", null])
                 ->comment('The units which the length and width of the room have 
-                            been provided in: 5 Metres, 6 Centimetres, 
-                            7 Millimetres, 8 Feet, 9 Inches'
+                            been provided in'
                         )
                 ->nullable();
-            $table->string('room_dimension_text')
+            $table->string('dimension_text')
                 ->comment('Any additional description or clarification of the room dimensions')
                 ->nullable();
-            $table->json('room_photo_urls')
+            $table->json('photo_urls')
                 ->comment('The URLs of images which should be associated with this room')
                 ->nullable();
             

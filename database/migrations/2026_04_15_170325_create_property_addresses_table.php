@@ -34,12 +34,14 @@ return new class extends Migration
             $table->string('postcode_1')
                 ->comment('First half of the postcode for the property');
             $table->string('postcode_2')
-                ->comment('Second half of the postcode for the property');
+                ->comment('Second half of the postcode for the property')
+                ->nullable();
             $table->string('display_address')
                 ->comment('Address which should be displayed on Rightmove for
                             the property. The full detailed address will only be
-                            visible to the agent and not displayed on website.');
-            $table->string('country_code', 2)
+                            visible to the agent and not displayed on website.')
+                ->nullable();
+            $table->string('country_code', 3)
                 ->comment("The ISO-3316 two letter code for the country the property is located");
             $table->string('region')
                 ->comment('The region that the property being sent is located in')

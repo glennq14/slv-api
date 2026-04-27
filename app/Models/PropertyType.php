@@ -13,6 +13,6 @@ class PropertyType extends Model
 
     public function properties(): HasMany
     {
-        return $this->hasMany(Property::class, '','id');
+        return $this->hasMany(Property::class);
     }
 }

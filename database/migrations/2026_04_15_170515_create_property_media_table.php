@@ -18,18 +18,24 @@ return new class extends Migration
                 ->references('id')
                 ->on('properties')
                 ->onDelete('cascade');
-            $table->enum('media_type', ['1, 2, 3, 4, 5, 6, 7'])
-                ->comment('The type of media which is being sent: 1 Image, 
-                            2 Floorplan, 3 Brochure, 4 Virtual Tour, 5 Audio Tour, 6 EPC, 7 EPC Graph'
-                );
-            $table->string('media_url')
+            $table->enum('type', [
+                    'Image', 
+                    'Floorplan',
+                    'Brochure',
+                    'Virtual Tour',
+                    'Audio Tour',
+                    'EPC', 
+                    'EPC Graph'
+                ])
+                ->comment('The type of media which is being sent');
+            $table->string('url')
                 ->comment('The URL to retrieve this piece of media from');
             $table->string('caption')
                 ->comment('The caption to be displayed for this piece of media')
                 ->nullable();
             $table->integer('sort_order')
                 ->comment('The display order for this piece of media');
-            $table->string('media_update_date')
+            $table->dateTime('media_update_date')
                 ->comment('The date the media at this URL was last updated in the format: dd-MM-yyyy HH:mm:ss')
                 ->nullable();
             $table->timestamps();

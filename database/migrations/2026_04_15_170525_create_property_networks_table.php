@@ -16,9 +16,19 @@ return new class extends Migration
             $table->unsignedBigInteger('property_id');
             $table->foreign('property_id')
                 ->references('id')
-                ->on('properties');
-            $table->enum('network', ['slv','rightmove','zoopla','bazaraki','apits'])
+                ->on('properties')
+                ->onDelete('cascade');
+            $table->enum('network', [
+                    'slv',
+                    'rightmove',
+                    'zoopla',
+                    'bazaraki',
+                    'apits'
+                ])
                 ->comment('Network for third party');
+            $table->boolean('published')
+                ->default(0)
+                ->comment('published status of the property on the third party network');
             $table->timestamps();
         });
     }

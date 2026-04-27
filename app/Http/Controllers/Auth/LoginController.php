@@ -36,7 +36,10 @@ class LoginController extends Controller
      */
     public function destroy(Request $request): Response
     {
-        $user = $request->user();
+        var_dump($request); exit;  
+        $user = Auth::user();
+        var_dump($user); exit;
+        // $user = $request->user();
         
         $user->currentAccessToken()->delete();
 

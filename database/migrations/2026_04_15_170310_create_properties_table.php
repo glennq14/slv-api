@@ -20,44 +20,39 @@ return new class extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-            $table->string('title')
-                ->comment('Property title');
-            $table->string('agent_ref', 80)
-                ->comment("Agent's unique reference for this property");
-            $table->boolean('published')
-                ->comment('Defines whether this property should be visible');
             $table->unsignedBigInteger('property_type_id');
             $table->foreign('property_type_id')
                 ->references('id')
                 ->on('property_types');
-            // $table->integer('property_type')
-            //     ->default(0)
-            //     ->comment('The type of the property being sent in this message');
-            $table->enum('os_status', ['Available', 'SSTC', 'Under Offer', 'Reserved'])
-                ->comment('The current transaction status for this property: 
-                    1 Available, 
-                    2 SSTC, 
-                    4 Under Offer, 
-                    5 Reserved'
-                );
+            $table->string('title')
+                ->unique()
+                ->comment('Property title');
+            $table->string('agent_ref', 80)
+                ->comment("Agent's unique reference for this property");
+            $table->enum('status', [
+                    'Available',
+                    'SSTC',
+                    'Under Offer',
+                    'Reserved'])
+                ->comment('The current transaction status for this property');
             $table->boolean('new_home')
-                ->comment("Defines whether this property is a new build")
-                ->nullable();
+                ->default(false)
+                ->comment("Defines whether this property is a new build");
             $table->boolean('student_property')
-                ->comment('Whether the property is available for student lettings')
-                ->nullable();
+                ->default(false)
+                ->comment('Whether the property is available for student lettings');
             $table->boolean('house_flat_share')
-                ->comment('Whether this advert is for a house/flat share')
-                ->nullable();
+                ->default(false)
+                ->comment('Whether this advert is for a house/flat share');
             $table->date('date_available')
                 ->comment('Date from which a rental property is available in the format: dd-MM-yyyy.')
                 ->nullable();
             $table->integer('contract_months')
-                ->comment('Length of rental contract in months (for lettings only).')
-                ->nullable();
+                ->default(0)
+                ->comment('Length of rental contract in months (for lettings only).');
             $table->integer('minimum_term')
-                ->comment('Minimum term for the rental contract in months (for lettings only).')
-                ->nullable();
+                ->default(0)
+                ->comment('Minimum term for the rental contract in months (for lettings only).');
             $table->string('let_type')
                 ->comment('Type of rental contract available for the property (for lettings only).')
                 ->nullable();

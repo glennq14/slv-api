@@ -17,7 +17,15 @@ class Property extends Model
         'title', 
         'property_type_id', 
         'published', 
-        'agent_ref'
+        'agent_ref',
+        'published',
+        'status',
+        'new_home',
+        'house_flat_share',
+        'date_available',
+        'student_property',
+        'contract_months',
+        'let_type'
     ];
 
     public function author(): BelongsTo
@@ -42,7 +50,7 @@ class Property extends Model
 
     public function price(): HasOne
     {
-        return $this->hasOne(PropertyPrice::class);
+        return $this->hasOne(PropertyPrice::class, 'property_id');
     }
 
     public function media(): HasMany
@@ -53,5 +61,10 @@ class Property extends Model
     public function rooms(): HasOne
     {
         return $this->hasOne(PropertyDetailRoom::class);
+    }
+
+    public function networks(): HasMany
+    {
+        return $this->hasMany(PropertyNetworks::class);
     }
 }

@@ -25,109 +25,194 @@ return new class extends Migration
             $table->json('features')
                 ->comment('Features of the property being sent')
                 ->nullable();
-            $table->integer('bedrooms')->default(0)
-                ->comment('The number of bedrooms for the property being sent')
+            $table->integer('bedrooms')
+                ->default(0)
+                ->comment('The number of bedrooms for the property being sent');
+            $table->integer('bathrooms')
+                ->default(0)
+                ->comment('The number of bathrooms for the property being sent');
+            $table->integer('reception_rooms')
+                ->default(0)
+                ->comment('The number of reception rooms for the property being sent');
+            $table->enum('parking', [
+                    "Allocated",
+                    "Communal",
+                    "Covered", 
+                    "Garage", 
+                    "Driveway", 
+                    "Gated", 
+                    "Off Street", 
+                    "On Street", 
+                    "Rear", 
+                    "Permit", 
+                    "Private", 
+                    "Residents", 
+                    null
+                ])
+                ->comment('Parking options available for the property being sent')
                 ->nullable();
-            $table->integer('bathrooms')->default(0)
-                ->comment('The number of bathrooms for the property being sent')
+            $table->enum('outside_space', [
+                    "Back Garden",
+                    "Communal Garden",
+                    "Enclosed Garden",
+                    "Front Garden",
+                    "Private Garden",
+                    "Rear Garden",
+                    "Terrace",
+                    "Patio",
+                    null
+                ])
+                ->comment('Outside spaces associated with the property being sent')
                 ->nullable();
-            $table->integer('reception_rooms')->default(0)
-                ->comment('The number of reception rooms for the property being sent')
-                ->nullable();
-            $table->enum('parking', [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, null])
-                ->comment('Parking options available for the property being sent: 
-                    13 Allocated, 14 Communal, 15 Covered, 16 Garage, 17 Driveway, 
-                    18 Gated, 19 Off Street, 20 On Street, 21 Rear, 22 Permit, 23 Private, 
-                    24 Residents')
-                ->nullable();
-            $table->enum('outside_space', [29, 30, 31, 32, 33, 34, 35, 36, null])
-                ->comment('Outside spaces associated with the property being sent: 29 Back Garden, 
-                        30 Communal Garden, 31 Enclosed Garden, 32 Front Garden, 33 Private Garden, 
-                        34 Rear Garden, 35 Terrace, 36 Patio')
-                ->nullable();
-            $table->integer('year_built')->default(0)
+            $table->integer('year_built')
+                ->default(0)
                 ->comment('The year in which the property being sent was built');
-            $table->decimal('internal_area' ,8,1)
+            $table->decimal('internal_area', 8,1)
+                ->default(0)
                 ->comment('Total internal area of the property being sent');
-            $table->enum('internal_area_unit', [1, 2, 3, 4, null])
+            $table->enum('internal_area_unit', [
+                    "sq ft", 
+                    "sq m", 
+                    "acre",
+                     "hectares", 
+                     null
+                ])
                 ->comment('Units which the internal area is sent in: 1 sq ft 2 sq m 3 acre 4 hectares')
                 ->nullable();
-            $table->decimal('land_area' ,8,1)
+            $table->decimal('land_area', 8,1)
+                ->default(0)
                 ->comment('Total land area of the property being sent');
-            $table->enum('land_area_unit', [1, 2, 3, 4, null])
+            $table->enum('land_area_unit', [
+                    "sq ft", 
+                    "sq m", 
+                    "acre", 
+                    "hectares", 
+                    null
+                ])
                 ->comment('Units which the land area is sent in: 1 sq ft 2 sq m 3 acre 4 hectares')
                 ->nullable();
             $table->integer('floors')
+                ->default(0)
                 ->comment('Number of floors in the property being sent');
-            $table->enum('entrance_floor', [1, 2, 3, 4, 5, 6, null])
-                ->comment('Floor which the entrance to the property being sent is on: 1 Basement, 
-                        2 Ground Floor, 3 1st Floor, 4 2nd Floor, 5 Higher than 2nd floor (no lift), 6 Higher than 2nd floor (with lift)')
+            $table->enum('entrance_floor', [
+                    "Basement", 
+                    "Ground Floor", 
+                    "1st Floor", 
+                    "2nd Floor", 
+                    "Higher than 2nd floor (no lift)", 
+                    "Higher than 2nd floor (with lift)", 
+                    null
+                ])
+                ->comment('Floor which the entrance to the property being sent is on')
                 ->nullable();
-            $table->enum('condition', [1, 2, 3, 4, null])
-                ->comment('Condition of the property being sent: 1 Good, 2 Some work needed, 3 Work required throughout, 4 Major renovation required')
+            $table->enum('condition', [
+                    "Good", 
+                    "Some work needed", 
+                    "Work required throughout", 
+                    "Major renovation required", 
+                    null
+                ])
+                ->comment('Condition of the property being sent')
                 ->nullable();
-            $table->enum('accessibility', [42, 37, 38, 39, 40, 41, null])
-                ->comment('Condition of the property being sent: 1 Good, 2 Some work needed, 3 Work required throughout, 4 Major renovation required')
+            $table->enum('accessibility', [
+                    "Accessible", 
+                    "Partially Accessible", 
+                    "Not Accessible", 
+                    null
+                ])
+                ->comment('Accessibility features of the property being sent')
                 ->nullable();
-            $table->enum('heating', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, null])
-                ->comment('Heating related features of the property being sent: 1 Air Conditioning, 2 Central, 3 Double Glazing, 
-                            4 Eco-Friendly, 5 Electric, 6 Gas, 7 Gas Central, 8 Night Storage, 9 Oil, 10 Solar, 11 Solar Water, 12 Under Floor')
+            $table->enum('heating', [
+                    "Air Conditioning", 
+                    "Central",
+                    "Double Glazing", 
+                    "Eco-Friendly",
+                    "Electric", 
+                    "Gas", 
+                    "Gas Central", 
+                    "Night Storage", 
+                    "Oil", 
+                    "Solar", 
+                    "Solar Water", 
+                    "Under Floor", 
+                    null
+                ])
+                ->comment('Heating related features of the property being sent')
                 ->nullable();
             $table->boolean('golf_course_on_site_or_within_10_minutes_walk')
-                ->comment('Is there a golf course within a ten minute walk of the property being sent')
-                ->nullable();
+                ->default(false)
+                ->comment('Is there a golf course within a ten minute walk of the property being sent');
             $table->boolean('golf_course_within_a_20_minute_drive')
-                ->comment('Is there a golf course within a twenty minute drive of the property being sent')
-                ->nullable();
+                ->default(false)
+                ->comment('Is there a golf course within a twenty minute drive of the property being sent');
             $table->boolean('private_pool')
-                ->comment('Is there a private pool at the property being sent')
-                ->nullable();
+                ->default(false)
+                ->comment('Is there a private pool at the property being sent');
+
             $table->boolean('communal_pool')
-                ->comment('Is there access to a communal pool at the property being sent')
-                ->nullable();
+                ->default(false)
+                ->comment('Is there access to a communal pool at the property being sent');
             $table->boolean('at_beach_or_within_10_minute_walk')
-                ->comment('Is there a beach located at or within a ten minute walk of the property being sent')
-                ->nullable();
+                ->default(false)
+                ->comment('Is there a beach located at or within a ten minute walk of the property being sent');
             $table->boolean('beach_within_a_20_minute_drive')
-                ->comment('Is there a beach within a twenty minute drive of the property being sent')
-                ->nullable();
+                ->default(false)
+                ->comment('Is there a beach within a twenty minute drive of the property being sent');
             $table->boolean('private_beach')
-                ->comment('Is there a private beach at the property being sent')
-                ->nullable();
+                ->default(false)    
+                ->comment('Is there a private beach at the property being sent');
             $table->boolean('sea_view')
-                ->comment('Is there a sea view at the property being sent')
-                ->nullable();
+                ->default(false)    
+                ->comment('Is there a sea view at the property being sent');
             $table->boolean('at_ski_field_or_within_10_minutes_walk')
-                ->comment('at_ski_field_or_within_10_minutes_walk')
-                ->nullable();
+                ->default(false)
+                ->comment('at_ski_field_or_within_10_minutes_walk');
             $table->boolean('ski_field_within_a_45_minute_drive')
-                ->comment('Is there a ski field within a 45 minute drive of the property being sent')
-                ->nullable();
+                ->default(false)
+                ->comment('Is there a ski field within a 45 minute drive of the property being sent');
             $table->boolean('air_conditioning')
-                ->comment('Is there air conditioning at the property being sent')
-                ->nullable();
+                ->default(false)
+                ->comment('Is there air conditioning at the property being sent');
             $table->boolean('security_system')
-                ->comment('Is there a security system at the property being sent')
-                ->nullable();
+                ->default(false)
+                ->comment('Is there a security system at the property being sent');
             $table->boolean('gated_entry')
-                ->comment('Is there gated entry at the property being sent')
-                ->nullable();
+                ->default(false)
+                ->comment('Is there gated entry at the property being sent');
             $table->boolean('balcony')
-                ->comment('Is there a balcony at the property being sent')
-                ->nullable();
+                ->default(false)    
+                ->comment('Is there a balcony at the property being sent');
             $table->boolean('ground_floor_terrace')
-                ->comment('Is there a ground floor terrace at the property being sent')
-                ->nullable();
+                ->default(false)    
+                ->comment('Is there a ground floor terrace at the property being sent');
             $table->boolean('roof_terrace')
-                ->comment('Is there a roof terrace at the property being sent')
-                ->nullable();
+                ->default(false)
+                ->comment('Is there a roof terrace at the property being sent');
             $table->boolean('hot_tub')
-                ->comment('Is there a hot tub at the property being sent')
-                ->nullable();
+                ->default(false)    
+                ->comment('Is there a hot tub at the property being sent');
             $table->boolean('business_for_sale')
-                ->comment('Is there a business for sale with the commercial property being sent')
-                ->nullable();
-            $table->enum('comm_use_class', [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, null])
+                ->default(false)
+                ->comment('Is there a business for sale with the commercial property being sent');
+            $table->enum('comm_use_class', [
+                    "A1 Shops", 
+                    "A2 Financial and Professional Services", 
+                    "A3 Restaurants and Cafes", 
+                    "A4 Drinking Establishments", 
+                    "A5 Hot Food Take away", 
+                    "B1 Business", 
+                    "B2 General Industrial", 
+                    "B8 Storage and Distribution", 
+                    "C1 Hotels", 
+                    "C2 Residential Institutions", 
+                    "C2A Secure Residential Institution", 
+                    "C3 Dwelling Houses",
+                    "D1 Non-Residential Institutions", 
+                    "D2 Assembly and Leisure", 
+                    "Sui_generis_1", 
+                    "Sui_generis_2", 
+                    null
+                ])
                 ->comment('The commercial use class(es) of the property being sent: 1 A1 Shops, 
                             4 A2 Financial and Professional Services, 7 A3 Restaurants and Cafes, 
                             10 A4 Drinking Establishments, 13 A5 Hot Food Take away, 16 B1 Business, 

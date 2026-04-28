@@ -10,6 +10,7 @@ class PropertyAddress extends Model
         "house_name_number",
         "address_2",
         "address_3",
+        "address_4",
         "town",
         "postcode_1",
         "postcode_2",

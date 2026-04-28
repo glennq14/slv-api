@@ -1,0 +1,7 @@
+php artisan migrate
+
+# Run the seeder for the Property Type
+php artisan db:seed --class=PropertyTypesSeeder
+
+# Generate key
+php artisan key:generate --show

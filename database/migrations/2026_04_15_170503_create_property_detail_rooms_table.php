@@ -38,7 +38,6 @@ return new class extends Migration
             $table->json('photo_urls')
                 ->comment('The URLs of images which should be associated with this room')
                 ->nullable();
-            
             $table->timestamps();
         });
     }

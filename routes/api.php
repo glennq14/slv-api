@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\v1\PropertyController as V1PropertyController;
 use App\Http\Controllers\Api\v1\UserController as V1UserController;
 use App\Http\Controllers\Api\v1\PropertyTypeController as V1PropertyTypeController;
 
+
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::prefix('v1')->group( function () {
         Route::apiResource('properties', V1PropertyController::class);

@@ -29,6 +29,12 @@ class LoginController extends Controller
             'user' => new UserResource($user),
             'token' => $token
         ];
+
+        $request->authenticate();
+
+        $request->session()->regenerate();
+
+        return response()->noContent();
     }
 
     /**
@@ -36,30 +42,32 @@ class LoginController extends Controller
      */
     public function destroy(Request $request): Response
     {
-        var_dump($request); exit;  
-        $user = Auth::user();
-        var_dump($user); exit;
-        // $user = $request->user();
-        
-        $user->currentAccessToken()->delete();
+        Auth::guard('web')->logout();
 
-        // Auth::guard('web')->logout();
+        $request->session()->invalidate();
 
-        // $request->session()->invalidate();
-
-        // $request->session()->regenerateToken();
+        $request->session()->regenerateToken();
 
         return response()->noContent();
     }
 
-    public function login(Request $request) {
-        $credentials = $request->only('email', 'password');
-
+    public function login(Request $request) 
+    {
+        $credentials = $request->only(['email', 'password']);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('dashboard');
         }
 
         return back()->withErrors(['email' => 'The provided credentials do not match our records.']);
+    }
+
+    public function formLogin() 
+    {
+        if (Auth::check()) {
+            return redirect()->intended('/');
+        }
+
+        return view('auth.login');
     }
 }

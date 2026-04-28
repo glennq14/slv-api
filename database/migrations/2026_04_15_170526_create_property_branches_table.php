@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum('channel', [1, 2])
                     ->comment('For dual branches it allows to retrieve all the properties for a specific channel');
             $table->boolean('overseas')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

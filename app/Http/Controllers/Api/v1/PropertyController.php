@@ -30,7 +30,7 @@ class PropertyController extends Controller
     public function store(StorePropertyRequest $request, Property $property)
     {
         $data = $request->validated();
-        dd($data);
+
         $property = Property::create($data);
 
         if (isset($data['address'])) {
@@ -51,7 +51,7 @@ class PropertyController extends Controller
             }
         }
         if (isset($data['media'])) {
-            $property->media()->createMany(['media' => $data['media']]);
+            $property->media()->createMany($data['media']);
         }
 
         if (isset($data['networks'])) {

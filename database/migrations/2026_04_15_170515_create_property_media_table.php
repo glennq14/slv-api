@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    const UPDATED_AT = null;
     /**
      * Run the migrations.
      */
@@ -38,7 +39,7 @@ return new class extends Migration
             $table->dateTime('media_update_date')
                 ->comment('The date the media at this URL was last updated in the format: dd-MM-yyyy HH:mm:ss')
                 ->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent(); 
         });
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PropertyType extends Model
 {
+    const UPDATED_AT = null;
     protected $fillable = [
         'name'
     ];

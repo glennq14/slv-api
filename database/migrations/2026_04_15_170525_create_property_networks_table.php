@@ -29,7 +29,7 @@ return new class extends Migration
             $table->boolean('published')
                 ->default(0)
                 ->comment('published status of the property on the third party network');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

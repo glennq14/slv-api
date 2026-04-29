@@ -3,6 +3,13 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Http\Request;
+
+// if (Request::is('api/*')) {
+//     dd('API request');
+//     die();
+// }
+
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(

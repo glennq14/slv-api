@@ -12,7 +12,7 @@ use Pest\Plugins\Profile;
 
 // Route::view('login',   'auth.login')->name('login');
 Route::get('login', [LoginController::class, 'formLogin'])->name('login');
-Route::post('login', [LoginController::class, 'login']);
+Route::post('login', [LoginController::class, 'webLogin']);
 
 Route::get('xml/properties', [PropertyController::class,'index'])->name('feed');
 

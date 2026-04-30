@@ -3,10 +3,13 @@
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 Route::middleware('api')->group(function () {
-    Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class, 'store']);
-    Route::post('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'destroy']);
+    Route::post('/login', [LoginController::class, 'store']);
+    Route::post('/logout', [LoginController::class, 'destroy']);
+    Route::post('/register', [RegisteredUserController::class, 'store']);
 });
 
 Route::middleware('guest')->group(function () {

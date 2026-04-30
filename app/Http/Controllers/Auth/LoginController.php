@@ -24,7 +24,7 @@ class LoginController extends Controller
         $token = $user->createToken("main")->plainTextToken;
 
         // $request->session()->regenerate();
-
+        
         return [
             'user' => new UserResource($user),
             'token' => $token
@@ -51,23 +51,15 @@ class LoginController extends Controller
         return response()->noContent();
     }
 
-    public function login(Request $request) 
-    {
-        $credentials = $request->only(['email', 'password']);
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended('dashboard');
-        }
+    // public function login(Request $request) 
+    // {
+    //     $credentials = $request->only(['email', 'password']);
+    //     if (Auth::attempt($credentials)) {
+    //         $request->session()->regenerate();
+    //         return redirect()->intended('dashboard');
+    //     }
 
-        return back()->withErrors(['email' => 'The provided credentials do not match our records.']);
-    }
+    //     return back()->withErrors(['email' => 'The provided credentials do not match our records.']);
+    // }
 
-    public function formLogin() 
-    {
-        if (Auth::check()) {
-            return redirect()->intended('/');
-        }
-
-        return view('auth.login');
-    }
 }

@@ -27,34 +27,43 @@ return new class extends Migration
             $table->string('title')
                 ->unique()
                 ->comment('Property title');
-            $table->string('agent_ref', 80)
-                ->comment("Agent's unique reference for this property");
-            $table->enum('status', [
-                    'Available',
-                    'SSTC',
-                    'Under Offer',
-                    'Reserved'])
-                ->comment('The current transaction status for this property');
-            $table->boolean('new_home')
-                ->default(false)
-                ->comment("Defines whether this property is a new build");
-            $table->boolean('student_property')
-                ->default(false)
-                ->comment('Whether the property is available for student lettings');
-            $table->boolean('house_flat_share')
-                ->default(false)
-                ->comment('Whether this advert is for a house/flat share');
-            $table->date('date_available')
-                ->comment('Date from which a rental property is available in the format: dd-MM-yyyy.')
+            $table->text('description')
+                ->comment('The full description of the property');
+            $table->enum('title_deeds', ['available','not-available'])
+                ->comment('Whether the title deeds for the property are available');
+            $table->integer('bedrooms')
+                ->default(0)
+                ->comment('Number of bedrooms');
+            $table->integer('bathrooms')
+                ->default(0)
+                ->comment('Number of bathrooms');
+            $table->decimal('build', 8, 2)
+                ->default(0)
+                ->comment('Build area in square meters');
+            $table->decimal('terrace', 8, 2)
+                ->default(0)
+                ->comment('Terrace area in square meters');
+            $table->decimal('plot', 8.2)
+                ->default(0)
+                ->comment('Plot area in square meters');
+            $table->string('plot_description', 255)
+                ->comment('Description of the plot area')
                 ->nullable();
-            $table->integer('contract_months')
-                ->default(0)
-                ->comment('Length of rental contract in months (for lettings only).');
-            $table->integer('minimum_term')
-                ->default(0)
-                ->comment('Minimum term for the rental contract in months (for lettings only).');
-            $table->string('let_type')
-                ->comment('Type of rental contract available for the property (for lettings only).')
+            $table->unsignedBigInteger('agent_id')
+                ->comment('ID of the agent responsible for the property');
+            $table->foreign('agent_id')
+                ->references('id')
+                ->on('users');
+            $table->foreign('property_type_id')
+                ->references('id')
+                ->on('property_types');
+            $table->string('year_of_construction', 255)
+                ->comment('Year of construction')
+                ->nullable();
+            $table->enum('pool', ['yes', 'no'])
+                ->comment('Whether the property has a pool');
+            $table->string('pool_description', 255)
+                ->comment('Description of the pool')
                 ->nullable();
             $table->timestamps();
         });

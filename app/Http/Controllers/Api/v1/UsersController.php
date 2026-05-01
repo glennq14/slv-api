@@ -7,7 +7,7 @@ use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use App\Models\User;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,7 +30,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return UserResource::collection($user->all());
+        return UserResource::make($user);
     }
     /**
      * Update the specified resource in storage.

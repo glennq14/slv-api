@@ -5,3 +5,6 @@ php artisan db:seed --class=PropertyTypesSeeder
 
 # Generate key
 php artisan key:generate --show
+
+# To update tailwind css minify
+npx tailwindcss -i ./resources/css/app.css -o ./public/css/app.css --minify

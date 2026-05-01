@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\PropertyTypeResource;
 use Illuminate\Http\Request;
 use App\Models\PropertyType;
-class PropertyTypeController extends Controller
+class PropertyTypesController extends Controller
 {
     /**
      * Display a listing of the resource.

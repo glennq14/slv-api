@@ -2,16 +2,16 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\v1\PropertyController as V1PropertyController;
-use App\Http\Controllers\Api\v1\UserController as V1UserController;
-use App\Http\Controllers\Api\v1\PropertyTypeController as V1PropertyTypeController;
+use App\Http\Controllers\Api\v1\PropertiesController as V1PropertiesController;
+use App\Http\Controllers\Api\v1\UsersController as V1UsersController;
+use App\Http\Controllers\Api\v1\PropertyTypesController as V1PropertyTypesController;
 
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::prefix('v1')->group( function () {
-        Route::apiResource('properties', V1PropertyController::class);
-        Route::apiResource('users', V1UserController::class);
-        Route::apiResource('property-types', V1PropertyTypeController::class);
+        Route::apiResource('properties', V1PropertiesController::class);
+        Route::apiResource('users', V1UsersController::class);
+        Route::apiResource('property-types', V1PropertyTypesController::class);
     });
 });
 

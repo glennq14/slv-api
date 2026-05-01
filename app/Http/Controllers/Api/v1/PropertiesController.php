@@ -8,7 +8,7 @@ use App\Http\Resources\PropertyResource;
 use App\Models\Property;
 use Illuminate\Http\Request;
 
-class PropertyController extends Controller
+class PropertiesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -75,14 +75,15 @@ class PropertyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $request)
+    public function show(Request $request, Property $property)
     {
-        $query = Property::query();
-
+        $id = $property->id;
+        
         if ($request->has('include')) {
-            $query->with(explode(',', $request->include));
+           $property = $property->with(explode(',', $request->include));
         }
-        return PropertyResource::make($query->firstOrFail());
+        
+        return PropertyResource::make($property->find($id));
     }
 
     /**
@@ -153,16 +154,4 @@ class PropertyController extends Controller
         return response()->noContent();
     }
 
-    /**
-     * Summary of downloadXml
-     * @param Property $property
-     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
-     */
-    private function downloadXml(Property $property)
-    {
-        $pathToFile = storage_path('app/exports/data.xml');
-        return response()->download($pathToFile, 'filename.xml', [
-            'Content-Type' => 'application/xml'
-        ]);
-    }
 }

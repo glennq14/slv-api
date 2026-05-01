@@ -6,7 +6,7 @@ use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Http\Resources\PropertyResource;
 
-class PropertyXmlController extends Controller
+class PropertiesXmlController extends Controller
 {
     public function feed()
     {

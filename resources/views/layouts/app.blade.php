@@ -36,4 +36,6 @@
         </div>
     </body>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Placeholder for page-specific scripts -->
+    @stack('scripts')
 </html>

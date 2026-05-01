@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PropertyController;
-use App\Http\Controllers\PropertyXmlController;
+use App\Http\Controllers\PropertiesController;
+use App\Http\Controllers\PropertiesXmlController;
 
 Route::view('/', 'welcome');
 
@@ -14,8 +14,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::view('profile', 'profile')
         ->name('profile');
     
-    Route::resource('property', PropertyController::class);
-    Route::get('/property-xml/feed', [PropertyXmlController::class, 'feed'])->name('property.xml-feed');
+    Route::resource('properties', PropertiesController::class);
+    Route::get('/properties-xml/feed', [PropertiesXmlController::class, 'feed'])->name('property.xml-feed');
 });
 
 // Route::view('dashboard', 'dashboard')

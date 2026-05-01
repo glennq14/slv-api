@@ -32,15 +32,23 @@
                         <!-- Form fields for property details -->
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-4">
                             <div>
-                                <label for="reference" class="block text-gray-700 text-base">Reference</label>
+                                <label for="reference" class="block text-black text-sm mb-1">Reference</label>
                                 <input type="text" name="reference" id="reference" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
                             </div>
                             <div>
-                                <label for="description" class="block text-gray-700 text-base">Price</label>
-                                <input type="number" name="description" id="description" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                                <label for="description" class="block text-black text-sm mb-1">Price</label>
+                                <div class="relative flex items-center">
+                                    <div class="absolute ml-0 text-gray-500 pr-3 h-full left-3 flex items-center">
+                                        &euro;
+                                    </div>
+                                    <input type="number" name="description" id="basicPrice" class="w-full pl-7 border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-8" required>
+                                    <div class="absolute ml-0 text-gray-500 pr-3 border-r-1 border-gray-300 rounded-r-md h-full right-0 flex items-center">
+                                        GBP
+                                    </div>
+                                </div>
                             </div>
                             <div>
-                                <label for="location" class="block text-gray-700 text-base">&nbsp;</label>
+                                <label for="location" class="block text-black text-sm mb-1">&nbsp;</label>
                                 <div class="flex items-center pt-2">
                                     <input type="radio" name="location" id="location" class="border-gray-300 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                     <label class="text-gray-700 ml-2">POA (hide price)</label>
@@ -64,7 +72,7 @@
                         </h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
                             <div>
-                                <label for="reference" class="block text-gray-700 text-base">Property Type</label>
+                                <label for="reference" class="block text-black text-sm mb-1">Property Type</label>
                                 <select name="property_type" id="property_type" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
                                     <option value="">None</option>
                                     <option value="house">House</option>
@@ -75,28 +83,28 @@
                             </div>
                             <div class="col-span-2 flex items-center">
                                 <div>
-                                    <label for="description" class="block text-gray-700 text-base">Has Title Deeds</label>
+                                    <label for="description" class="block text-black text-sm mb-1">Has Title Deeds</label>
                                     <div class="flex items-center pt-2">
                                         <div class="flex items-center">
                                             <input type="radio" name="description" id="description_yes" value="yes" class="border-gray-300 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
-                                            <label for="description_yes" class="text-gray-700 ml-2">Available</label>
+                                            <label for="description_yes" class="text-gray-700 ml-2 text-sm">Available</label>
                                         </div>
                                         <div class="flex items-center ml-5">
                                             <input type="radio" name="description" id="description_no" value="no" class="border-gray-300 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
-                                            <label for="description_no" class="text-gray-700 ml-2">Not Available</label>
+                                            <label for="description_no" class="text-gray-700 ml-2 text-sm">Not Available</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="pl-4">
-                                    <label for="description" class="block text-gray-700 text-base">Leasehold Property?</label>
+                                    <label for="description" class="block text-black text-sm mb-1">Leasehold Property?</label>
                                     <div class="flex items-center pt-2">
                                         <div class="flex items-center">
                                             <input type="radio" name="description" id="description_yes" value="yes" class="border-gray-300 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
-                                            <label for="description_yes" class="text-gray-700 ml-2">Yes</label>
+                                            <label for="description_yes" class="text-gray-700 ml-2 text-sm">Yes</label>
                                         </div>
                                         <div class="flex items-center ml-5">
                                             <input type="radio" name="description" id="description_no" value="no" class="border-gray-300 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
-                                            <label for="description_no" class="text-gray-700 ml-2">No</label>
+                                            <label for="description_no" class="text-gray-700 ml-2 text-sm">No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -104,36 +112,51 @@
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
                             <div>
-                                <label for="reference" class="block text-gray-700 text-base">Bedrooms</label>
+                                <label for="reference" class="block text-black text-sm mb-1">Bedrooms</label>
                                 <input type="number" name="reference" id="reference" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
                             </div>
                             <div>
-                                <label for="description" class="block text-gray-700 text-base">Bathrooms</label>
+                                <label for="description" class="block text-black text-sm mb-1">Bathrooms</label>
                                 <input type="number" name="description" id="description" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
                             </div>
                             <div>
-                                <label for="description" class="block text-gray-700 text-base">Build</label>
-                                <input type="number" name="description" id="description" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                                <label for="description" class="block text-black text-sm mb-1">Build</label>
+                                <div class="relative rounded-md shadow-sm max-w-sm">
+                                    <input type="number" name="building" id="building" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-10 placeholder="">
+                                    <div class="absolute inset-y-0 right-0 flex items-center h-full pl-3 pr-4 bg-gray-50 text-center text-gray-500 border border-gray-300 rounded-r-md">
+                                        m<span class="text-[0.65rem] align-super mb-2">2</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
                             <div>
-                                <label for="reference" class="block text-gray-700 text-base">Terrace</label>
-                                <input type="number" name="reference" id="reference" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                                <label for="reference" class="block text-black text-sm mb-1">Terrace</label>
+                                <div class="relative rounded-md shadow-sm max-w-sm">
+                                    <input type="number" name="price" id="price" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-10" placeholder="">
+                                    <div class="absolute inset-y-0 right-0 flex items-center h-full pl-3 pr-4 bg-gray-50 text-center text-gray-500 border border-gray-300 rounded-r-md">
+                                        m<span class="text-[0.65rem] align-super mb-2">2</span>
+                                    </div>
+                                </div>
                             </div>
                             <div>
-                                <label for="description" class="block text-gray-700 text-base">Plot</label>
-                                <input type="number" name="description" id="description" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                                <label for="description" class="block text-black text-sm mb-1 mb-1">Plot</label>
+                                <div class="relative rounded-md shadow-sm max-w-sm">
+                                    <input type="number" name="price" id="price" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-10" placeholder="">
+                                    <div class="absolute inset-y-0 right-0 flex items-center h-full pl-3 pr-4 bg-gray-50 text-center text-gray-500 border border-gray-300 rounded-r-md">
+                                        m<span class="text-[0.65rem] align-super mb-2">2</span>
+                                    </div>
+                                </div>
                             </div>
                             <div>
-                                <label for="description" class="block text-gray-700 text-base">Plot Description</label>
+                                <label for="description" class="block text-black text-sm mb-1">Plot Description</label>
                                 <input type="text" placeholder="e.g. Corner Plot, flat, slight slope, cul-de-sac" name="description" id="description" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
                             <div>
-                                <label for="reference" class="block text-gray-700 text-base">Managing Agent</label>
-                                <select name="property_type" id="property_type" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                                <label for="reference" class="block text-black text-sm mb-1 mb-1">Managing Agent</label>
+                                <select name="property_type" id="property_type" class="w-full border-gray-300 py-3 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-sm" required>
                                     <option value="">None</option>
                                     <option value="house">SLV (General)</option>
                                     <option value="apartment">Andriy Stanislavchuk</option>
@@ -142,27 +165,27 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="description" class="block text-gray-700 text-base">Year of Construction</label>
+                                <label for="description" class="block text-black text-sm mb-1">Year of Construction</label>
                                 <input type="number" placeholder="e.g. 2005" name="description" id="description" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
                             </div>
                             <div>
-                                <label for="description" class="block text-gray-700 text-base">Pool</label>
+                                <label for="description" class="block text-black text-sm mb-1">Pool</label>
                                 <div class="flex items-center pt-2">
                                     <div class="flex items-center">
                                         <input type="radio" name="location" id="location" class="border-gray-300 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                                        <label class="text-gray-700 ml-2">Yes</label>
+                                        <label class="text-gray-700 ml-2 text-sm">Yes</label>
                                     </div>
                                     <div class="flex items-center ml-4">
                                         <input type="radio" name="description" id="description" class="border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                                        <label class="text-gray-700 ml-2">No</label>
+                                        <label class="text-gray-700 ml-2 text-sm">No</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="mb-6">
                             <div class="w-1/2">
-                                <label for="pool_description" class="block text-gray-700 text-base">Pool Description</label>
-                                <input type="text" name="pool_description" id="pool_description" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                                <label for="pool_description" class="block text-black text-sm mb-1">Pool Description</label>
+                                <input type="text" name="pool_description" id="pool_description" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter pool details (e.g. Infinity, Heated, Shared)" required>
                             </div>
                         </div>
                     </div>
@@ -185,27 +208,47 @@
                         <!-- Form fields for property details -->
                         <div class="grid grid-cols-5 md:grid-cols-5 gap-5 mb-4">
                             <div>
-                                <label for="reference" class="font-md block text-gray-700 text-base">Original Price</label>
+                                <label for="reference" class="font-md block text-black text-sm mb-1">Original Price</label>
                                 <input type="text" name="reference" id="reference" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
                             </div>
                             <div>
-                                <label for="description" class="block text-gray-700 text-base">Total Reduction %</label>
+                                <label for="description" class="block text-black text-sm mb-1">Total Reduction %</label>
+                                <div class="relative rounded-md shadow-sm max-w-sm">
+                                    <input type="number" name="price" id="price" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-8" placeholder="">
+                                    <div class="absolute inset-y-0 right-0 flex items-center h-full pl-3 pr-4 bg-gray-100 text-center text-gray-500 border border-gray-300 rounded-r-md text-sm">
+                                        %
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="description" class="block text-black text-sm mb-1">Total Reduction (Price)</label>
                                 <input type="number" name="description" id="description" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
                             </div>
                             <div>
-                                <label for="description" class="block text-gray-700 text-base">Total Reduction (Price)</label>
-                                <input type="number" name="description" id="description" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                                <label for="description" class="block text-black text-sm mb-1">Commission</label>
+                                <div class="relative rounded-md shadow-sm max-w-sm">
+                                    <input type="number" name="commission" id="commission" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-8" placeholder="">
+                                    <div class="absolute inset-y-0 right-0 flex items-center h-full pl-3 pr-4 bg-gray-100 text-center text-gray-500 border border-gray-300 rounded-r-md text-sm">
+                                        %
+                                    </div>
+                                </div>
                             </div>
                             <div>
-                                <label for="description" class="block text-gray-700 text-base">Commission</label>
-                                <input type="number" name="description" id="description" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
-                            </div>
-                            <div>
-                                <label for="description" class="block text-gray-700 text-base">Communal Charge (&euro;)</label>
-                                <input type="number" name="description" id="description" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                                <label for="description" class="block text-black text-sm mb-1">Communal Charge (&euro;)</label>
+                                <div class="relative rounded-md shadow-sm max-w-sm">
+                                    <input type="number" name="communal_charge" id="communalCharge" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-[55px]" placeholder="">
+                                    <div class="absolute inset-y-0 right-0 flex items-center">
+                                        <label for="currency" class="sr-only">Currency</label>
+                                        <select id="currency" name="currency" class="h-full rounded-r-md border-gray-300 pl-0 pr-5 bg-gray-100 text-center text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
+                                        <option>p/yr</option>
+                                        <option>p/mon</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-                    </div>
+                    </div>  
                 </div>
             </div>
         </div>
@@ -225,15 +268,59 @@
                         <div class="grid grid-cols-1 md:grid-cols-4 gap-5 mb-4">
                             <div>
                                 <label for="reference" class="block text-gray-700 text-sm">Listing Type</label>
+                                <div class="flex items-center pt-2">
+                                    <div class="flex items-center">
+                                        <input type="radio" name="location" id="location" class="border-gray-300 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        <label class="text-gray-700 ml-2 text-sm ">Release</label>
+                                    </div>
+                                    <div class="flex items-center ml-4">
+                                        <input type="radio" name="description" id="description" class="border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        <label class="text-gray-700 ml-2 text-sm">New</label>
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <label for="description" class="block text-gray-700 text-sm">Plan Zone</label>
+                                <div class="flex items-center pt-2">
+                                    <div class="flex items-center">
+                                        <input type="radio" name="location" id="location" class="border-gray-300 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        <label class="text-gray-700 ml-2 text-sm ">A</label>
+                                    </div>
+                                    <div class="flex items-center ml-4">
+                                        <input type="radio" name="description" id="description" class="border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        <label class="text-gray-700 ml-2 text-sm">B</label>
+                                    </div>
+                                    <div class="flex items-center ml-4">
+                                        <input type="radio" name="description" id="description" class="border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        <label class="text-gray-700 ml-2 text-sm">C</label>
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <label for="description" class="block text-gray-700 text-sm">Sea View</label>
+                                <div class="flex items-center pt-2">
+                                    <div class="flex items-center">
+                                        <input type="radio" name="location" id="location" class="border-gray-300 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        <label class="text-gray-700 ml-2 text-sm ">Yes</label>
+                                    </div>
+                                    <div class="flex items-center ml-4">
+                                        <input type="radio" name="description" id="description" class="border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        <label class="text-gray-700 ml-2 text-sm">No</label>
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <label for="description" class="block text-gray-700 text-sm">For Sale Board</label>
+                                <div class="flex items-center pt-2">
+                                    <div class="flex items-center">
+                                        <input type="radio" name="location" id="location" class="border-gray-300 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        <label class="text-gray-700 ml-2 text-sm ">Yes</label>
+                                    </div>
+                                    <div class="flex items-center ml-4">
+                                        <input type="radio" name="description" id="description" class="border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        <label class="text-gray-700 ml-2 text-sm">No</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -247,4 +334,5 @@
         </div>
     </form>
     <div class="mb-5"></div>
+    <br /><br /><br />
 </x-app-layout>

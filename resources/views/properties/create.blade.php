@@ -122,8 +122,8 @@
                             <div>
                                 <label for="description" class="block text-black text-sm mb-1">Build</label>
                                 <div class="relative rounded-md shadow-sm max-w-sm">
-                                    <input type="number" name="building" id="building" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-10 placeholder="">
-                                    <div class="absolute inset-y-0 right-0 flex items-center h-full pl-3 pr-4 bg-gray-50 text-center text-gray-500 border border-gray-300 rounded-r-md">
+                                    <input type="number" name="building" id="building" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-9 placeholder="">
+                                    <div class="absolute inset-y-0 right-0 flex items-center h-full pl-3 pr-3 bg-gray-50 text-center text-gray-500 border border-gray-300 rounded-r-md">
                                         m<span class="text-[0.65rem] align-super mb-2">2</span>
                                     </div>
                                 </div>
@@ -133,8 +133,8 @@
                             <div>
                                 <label for="reference" class="block text-black text-sm mb-1">Terrace</label>
                                 <div class="relative rounded-md shadow-sm max-w-sm">
-                                    <input type="number" name="price" id="price" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-10" placeholder="">
-                                    <div class="absolute inset-y-0 right-0 flex items-center h-full pl-3 pr-4 bg-gray-50 text-center text-gray-500 border border-gray-300 rounded-r-md">
+                                    <input type="number" name="price" id="price" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-9" placeholder="">
+                                    <div class="absolute inset-y-0 right-0 flex items-center h-full pl-3 pr-3 bg-gray-50 text-center text-gray-500 border border-gray-300 rounded-r-md">
                                         m<span class="text-[0.65rem] align-super mb-2">2</span>
                                     </div>
                                 </div>
@@ -142,8 +142,8 @@
                             <div>
                                 <label for="description" class="block text-black text-sm mb-1 mb-1">Plot</label>
                                 <div class="relative rounded-md shadow-sm max-w-sm">
-                                    <input type="number" name="price" id="price" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-10" placeholder="">
-                                    <div class="absolute inset-y-0 right-0 flex items-center h-full pl-3 pr-4 bg-gray-50 text-center text-gray-500 border border-gray-300 rounded-r-md">
+                                    <input type="number" name="price" id="price" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-9" placeholder="">
+                                    <div class="absolute inset-y-0 right-0 flex items-center h-full pl-3 pr-3 bg-gray-50 text-center text-gray-500 border border-gray-300 rounded-r-md">
                                         m<span class="text-[0.65rem] align-super mb-2">2</span>
                                     </div>
                                 </div>
@@ -214,8 +214,8 @@
                             <div>
                                 <label for="description" class="block text-black text-sm mb-1">Total Reduction %</label>
                                 <div class="relative rounded-md shadow-sm max-w-sm">
-                                    <input type="number" name="price" id="price" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-8" placeholder="">
-                                    <div class="absolute inset-y-0 right-0 flex items-center h-full pl-3 pr-4 bg-gray-100 text-center text-gray-500 border border-gray-300 rounded-r-md text-sm">
+                                    <input type="number" name="price" id="price" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-7" placeholder="">
+                                    <div class="absolute inset-y-0 right-0 flex items-center h-full pl-3 px-3 bg-gray-100 text-center text-gray-500 border border-gray-300 rounded-r-md text-sm">
                                         %
                                     </div>
                                 </div>
@@ -227,8 +227,8 @@
                             <div>
                                 <label for="description" class="block text-black text-sm mb-1">Commission</label>
                                 <div class="relative rounded-md shadow-sm max-w-sm">
-                                    <input type="number" name="commission" id="commission" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-8" placeholder="">
-                                    <div class="absolute inset-y-0 right-0 flex items-center h-full pl-3 pr-4 bg-gray-100 text-center text-gray-500 border border-gray-300 rounded-r-md text-sm">
+                                    <input type="number" name="commission" id="commission" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-7" placeholder="">
+                                    <div class="absolute inset-y-0 right-0 flex items-center h-full pl-3 px-3 bg-gray-100 text-center text-gray-500 border border-gray-300 rounded-r-md text-sm">
                                         %
                                     </div>
                                 </div>
@@ -238,10 +238,9 @@
                                 <div class="relative rounded-md shadow-sm max-w-sm">
                                     <input type="number" name="communal_charge" id="communalCharge" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50 [&::-webkit-inner-spin-button]:mr-[55px]" placeholder="">
                                     <div class="absolute inset-y-0 right-0 flex items-center">
-                                        <label for="currency" class="sr-only">Currency</label>
-                                        <select id="currency" name="currency" class="h-full rounded-r-md border-gray-300 pl-0 pr-5 bg-gray-100 text-center text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
-                                        <option>p/yr</option>
-                                        <option>p/mon</option>
+                                        <select id="currency" name="currency" class="h-full pl-2 rounded-r-md border-gray-300 pr-3 bg-gray-100 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
+                                            <option value="yearly">p/yr</option>
+                                            <option value="monthly">p/mon</option>
                                         </select>
                                     </div>
                                 </div>

@@ -20,13 +20,8 @@ return new class extends Migration
                 ->on('properties')
                 ->onDelete('cascade');
             $table->enum('type', [
-                    'Image', 
-                    'Floorplan',
-                    'Brochure',
-                    'Virtual Tour',
-                    'Audio Tour',
-                    'EPC', 
-                    'EPC Graph'
+                    'GalleryImage', 
+                    'Floorplan'
                 ])
                 ->comment('The type of media which is being sent');
             $table->string('url')

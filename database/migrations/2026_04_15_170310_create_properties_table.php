@@ -43,9 +43,9 @@ return new class extends Migration
             $table->decimal('terrace', 8, 2)
                 ->default(0)
                 ->comment('Terrace area in square meters');
-            $table->decimal('plot', 8.2)
-                ->default(0)
-                ->comment('Plot area in square meters');
+            $table->decimal('plot_area', 8,2)
+                ->comment('Plot area in square meters')
+                ->nullable();
             $table->string('plot_description', 255)
                 ->comment('Description of the plot area')
                 ->nullable();
@@ -54,10 +54,7 @@ return new class extends Migration
             $table->foreign('agent_id')
                 ->references('id')
                 ->on('users');
-            $table->foreign('property_type_id')
-                ->references('id')
-                ->on('property_types');
-            $table->string('year_of_construction', 255)
+            $table->string('year_of_construction', 5)
                 ->comment('Year of construction')
                 ->nullable();
             $table->enum('pool', ['yes', 'no'])
@@ -65,6 +62,19 @@ return new class extends Migration
             $table->string('pool_description', 255)
                 ->comment('Description of the pool')
                 ->nullable();
+            $table->enum('listing_type', ['Resale', 'New'])
+                ->default('New')
+                ->comment('Property listing type: "Resale" for sale, "New" for new');
+            $table->enum('plan_zone',['A','B','C'])
+                ->default('A')
+                ->comment('Plan zone for the property');
+            $table->enum('sea_view', ['Yes','No'])
+                ->default('No')
+                ->comment('Whether the property has a sea view');
+            $table->enum('for_sale_board', ['Yes','No'])
+                ->default('No')
+                ->comment('Whether the property is on the for sale board');
+
             $table->timestamps();
         });
 

@@ -13,15 +13,27 @@ return new class extends Migration
     {
         Schema::create('property_detail_sizings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('property_detail_id');
-            $table->foreign('property_detail_id')
+            $table->unsignedBigInteger('property_id');
+            $table->foreign('property_id')
                 ->references('id')
-                ->on('property_details')
+                ->on('properties')
                 ->onDelete('cascade');
-            $table->decimal('minimum',8,2)->default(0);
-            $table->decimal('maximum',8,2)->default(0);
-            $table->string('area_unit')
-                ->nullable();
+            $table->decimal('ammenities',8,2)->default(0);
+            $table->decimal('air_port',8,2)->default(0);
+            $table->decimal('sea',8,2)->default(0);
+            $table->decimal('public_transaport',8,2)->default(0);
+            $table->decimal('schools',8,2)->default(0);
+            $table->decimal('resorts',8,2)->default(0);
+            $table->decimal('covered',8,2)->default(0);
+            $table->decimal('plot',8,2)->default(0);
+            $table->decimal('attic',8,2)->default(0);
+            $table->decimal('roof_garden',8,2)->default(0);
+            $table->decimal('covered_veranda',8,2)->default(0);
+            $table->decimal('uncovered_veranda',8,2)->default(0);
+            $table->decimal('covered_parking',8,2)->default(0);
+            $table->decimal('basement',8,2)->default(0);
+            $table->decimal('countyard',8,2)->default(0);
+            $table->decimal('garden',8,2)->default(0);
             $table->timestamps();
         });
     }
